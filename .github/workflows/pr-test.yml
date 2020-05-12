@@ -112,7 +112,7 @@ jobs:
         pipenv run python -m unittest
   
   pr-lint:
-    needs: pr-format
+    #needs: pr-format
 
     runs-on: ubuntu-latest
     strategy:
@@ -167,5 +167,5 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: "${{steps.lint.outputs.result}}"
+            body: ${{steps.lint.outputs.result}}
           })
