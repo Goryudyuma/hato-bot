@@ -44,22 +44,13 @@ jobs:
       run: |
         pipenv run autopep8 --exit-code --in-place --recursive .
       continue-on-error: true
-    - name: Commit
-      if: steps.format.outcome == 'failure'
-      uses: actions/github-script@0.9.0
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          github.git.createCommit({
-            context.repo.owner,
-            context.repo.repo,
-            "鳩は唐揚げ！(自動で直してあげたよ！)",
-            ${{ github.sha }},
-            [${{ github.sha }}]
-          })
     - name: Push
       if: steps.format.outcome == 'failure'
-      run: git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{github.event.pull_request.head.ref}}
+      run: |
+        git config user.name "hatohakaraage"
+        git config user.email "hatohakaraage@example.com"
+        git add -u
+        git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{github.event.pull_request.head.ref}}
     - name: Return false
       if: steps.format.outcome == 'failure'
       run: return 1
