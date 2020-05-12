@@ -51,6 +51,7 @@ jobs:
         git config user.email "hatohakaraage@example.com"
         git add -u
         git commit -m "鳩は唐揚げ！(自動で直してあげたよ！)"
+        git fetch --no-tags --prune --depth=1 origin ${{github.event.pull_request.head.ref}}
         git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{github.event.pull_request.head.ref}}
     - name: Return false
       if: steps.format.outcome == 'failure'
