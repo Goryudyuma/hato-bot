@@ -64,8 +64,8 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             title: "fix format: ${{github.event.pull_request.head.ref}}",
-            head: ${{github.event.pull_request.head.ref}},
-            base: fix-format-${{github.event.pull_request.head.ref}}
+            head: fix-format-${{github.event.pull_request.head.ref}},
+            base: ${{github.event.pull_request.head.ref}}
           })
     - name: Exit
       if: steps.format.outcome == 'failure'
