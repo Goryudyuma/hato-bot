@@ -37,8 +37,8 @@ class LabotterDatabase:
 
         return lab_in_flag
 
-    def create_labo_row(self, id):
-        c_lab_row_flag = True
+    def     create_labo_row(self, id):
+        c_lab_row_flag = True    
         with self.conn.cursor() as cursor:
             try:
                 cursor.execute(
