@@ -151,7 +151,7 @@ jobs:
       run: |
         git fetch --no-tags --prune --depth=1 origin ${GITHUB_HEAD_REF}
         git fetch --no-tags --prune --depth=1 origin ${GITHUB_BASE_REF}
-        result=$(pipenv run pylint $(git diff origin/${GITHUB_BASE_REF}..origin/${GITHUB_HEAD_REF} --diff-filter=AM --name-only -- '*.py') 2>&1)
+        result=$(pipenv run pylint $(git diff origin/${GITHUB_BASE_REF}..origin/${GITHUB_HEAD_REF} --diff-filter=AM --name-only -- '*.py') 2>&1) || true
         result="${result//'%'/'%25'}"
         result="${result//$'\n'/'%0A'}"
         result="${result//$'\r'/'%0D'}"
