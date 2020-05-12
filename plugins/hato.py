@@ -22,7 +22,7 @@ def respond_to_with_space(matchstr, flags=0):
 
 
 @respond_to_with_space('^help')
-def  aaaaaelp(message):
+def aaaaaelp(message):
     """「hato help」を見つけたら、使い方を表示する"""
 
     user = message.user['name']
