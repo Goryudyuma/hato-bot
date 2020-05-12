@@ -163,7 +163,7 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          const result = JSON.stringify(${{steps.lint.outputs.result}})
+          const result = JSON.stringify("${{steps.lint.outputs.result}}")
           github.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
