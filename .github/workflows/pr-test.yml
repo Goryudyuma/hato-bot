@@ -61,11 +61,11 @@ jobs:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           github.pulls.create({
-            context.repo.owner,
-            context.repo.repo,
-            "fix format: ${{github.event.pull_request.head.ref}}",
-            ${{github.event.pull_request.head.ref}},
-            fix-format-${{github.event.pull_request.head.ref}}
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: "fix format: ${{github.event.pull_request.head.ref}}",
+            head: ${{github.event.pull_request.head.ref}},
+            base: fix-format-${{github.event.pull_request.head.ref}}
           })
     - name: Exit
       if: steps.format.outcome == 'failure'
