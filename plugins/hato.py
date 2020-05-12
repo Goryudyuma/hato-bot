@@ -17,7 +17,7 @@ logger = getLogger(__name__)
 VERSION = "1.0.2"
 
 
-def   respond_to_with_space(matchstr, flags=0):
+def respond_to_with_space(matchstr, flags=0):
     return respond_to(matchstr.replace('^', r'^\s*'), flags)
 
 
