@@ -43,6 +43,7 @@ jobs:
       id: format
       run: |
         pipenv run autopep8 --exit-code --in-place --recursive .
+      continue-on-error: true
     - name: Commit
       if: steps.format.exitcode == 2
       uses: actions/github-script@0.9.0
