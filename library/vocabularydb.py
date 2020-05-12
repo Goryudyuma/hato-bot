@@ -81,7 +81,7 @@ def add_vocabulary(msg) -> str:
         vd.add_word(msg)
 
 
-def    show_vocabulary(id) -> int:
+def show_vocabulary(id) -> int:
     """指定したものを表示する"""
 
     slack_msg = "該当する番号は見つからなかったっぽ!"
