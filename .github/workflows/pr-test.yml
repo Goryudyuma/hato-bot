@@ -63,7 +63,8 @@ jobs:
           github.pulls.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            title: "fix format: ${{github.event.pull_request.head.ref}}",
+            title: "fix format: ${{github.event.pull_request.number}}",
+            body: "鳩の唐揚げおいしい！",
             head: "fix-format-${{github.event.pull_request.head.ref}}",
             base: "${{github.event.pull_request.head.ref}}"
           })
