@@ -55,9 +55,6 @@ jobs:
         git add -u
         git commit -m "鳩は唐揚げ！(自動で直してあげたよ！)"
         git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{github.event.pull_request.head.ref}}
-    - name: Return false
-      if: steps.format.outcome == 'failure'
-      run: return 1
 
 
   
