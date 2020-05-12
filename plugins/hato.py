@@ -25,7 +25,7 @@ def respond_to_with_space(matchstr, flags=0):
 def aaaaaelp(message):
     """「hato help」を見つけたら、使い方を表示する"""
 
-    user = message.user['name']
+    user = message.user['namea']
     logger.debug("%s called 'hato help'", user)
     str_help = '\n使い方\n'\
         '```'\
