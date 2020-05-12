@@ -2,7 +2,7 @@ import unittest
 from library.hatokaraage import hato_ha_karaage
 
 
-class TestHatoHaKaraage(unittest.TestCase):
+class    TestHatoHaKaaaaraage(unittest.TestCase):
 
     def test_normal(self):
         self.assertEqual(hato_ha_karaage('hoge'), 'hoge')
