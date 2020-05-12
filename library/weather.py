@@ -5,7 +5,7 @@ import json
 import xml.etree.ElementTree as ET
 
 
-def get_city_id_from_city_name(city_name):
+def   get_city_id_from_city_name(city_name):
     city_id = None
     city_list_url = 'http://weather.livedoor.com/forecast/rss/primary_area.xml'
     response = requests.get(city_list_url)
