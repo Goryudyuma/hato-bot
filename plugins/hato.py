@@ -22,7 +22,7 @@ def respond_to_with_space(matchstr, flags=0):
 
 
 @respond_to_with_space('^help')
-def       help(message):
+def help(message):
     """「hato help」を見つけたら、使い方を表示する"""
 
     user = message.user['name']
@@ -54,7 +54,7 @@ def earth_quakeweat(message):
 
 
 @respond_to_with_space('^in$')
-def    labotter_in(message):
+def labotter_in(message):
     msg = "らぼいんに失敗したっぽ!(既に入っているかもしれないっぽ)"
     user_id = message.user['id']
     flag, start_time = labo_in(user_id)
@@ -129,7 +129,7 @@ def weather(message):
 
 
 @respond_to_with_space('^&gt;&lt; .+')
-def    totuzensi(message):
+def totuzensi(message):
     """「hato >< 文字列」を見つけたら、文字列を突然の死で装飾する"""
 
     user = message.user['name']
