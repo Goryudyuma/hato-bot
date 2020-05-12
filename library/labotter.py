@@ -3,7 +3,7 @@ import datetime
 import slackbot_settings as conf
 
 
-class     LabotterDatabase:
+class LabotterDatabase:
     def __init__(self):
         try:
             pg8000.paramstyle = 'qmark'
