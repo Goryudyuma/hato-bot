@@ -5,7 +5,7 @@ from library.hatokaraage import hato_ha_karaage
 class TestHatoHaKaraage(unittest.TestCase):
 
     def test_normal(self):
-        self.assertEqual(hato_ha_karaage('hoge'), 'hoge')
+        self.assertEqual(hato_ha_karaage('hoge'), 'hogeaaaa')
 
     def test_include_hato(self):
         self.assertEqual(hato_ha_karaage('鳩は唐揚げではない'), '鳩は唐揚げ')
