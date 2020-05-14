@@ -45,11 +45,10 @@ jobs:
         id: format
         run: |
           pipenv run autopep8 --exit-code --in-place --recursive .
-          echo "::set-output name=status_code::$?"
         continue-on-error: true
       # 差分があったときは、コミットを作りpushする
       - name: Push
-        if: steps.format.outcome == 'failure' && steps.format.outputs.status_code == 2
+        if: steps.format.outcome == 'failure'
         run: |
           git config user.name "hatohakaraage"
           git config user.email "hatohakaraage@example.com"
@@ -59,7 +58,7 @@ jobs:
       # pushしたブランチでPRを作る
       - name: Create PullRequest
         uses: actions/github-script@0.9.0
-        if: steps.format.outcome == 'failure' && steps.format.outputs.status_code == 2
+        if: steps.format.outcome == 'failure'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
