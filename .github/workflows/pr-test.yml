@@ -72,7 +72,7 @@ jobs:
               base: "${{github.event.pull_request.head.ref}}"
             })
       - name: Exit
-        if: steps.format.outcome != 'failure'
+        if: steps.format.outcome == 'failure'
         run: return 1
 
   # unittestを行う
