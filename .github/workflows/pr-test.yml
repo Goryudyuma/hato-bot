@@ -49,7 +49,7 @@ jobs:
         continue-on-error: true
       # 差分があったときは、コミットを作りpushする
       - name: Push
-        if: steps.format.outputs == 2
+        if: steps.format.outcome == 'failure' && steps.format.outputs == 2
         run: |
           git config user.name "hatohakaraage"
           git config user.email "hatohakaraage@example.com"
@@ -59,7 +59,7 @@ jobs:
       # pushしたブランチでPRを作る
       - name: Create PullRequest
         uses: actions/github-script@0.9.0
-        if: steps.format.outcome == 2
+        if: steps.format.outcome == 'failure' && steps.format.outputs == 2
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -72,7 +72,7 @@ jobs:
               base: "${{github.event.pull_request.head.ref}}"
             })
       - name: Exit
-        if: steps.format.outputs != 0
+        if: steps.format.outcome != 'failure'
         run: return 1
 
   # unittestを行う
