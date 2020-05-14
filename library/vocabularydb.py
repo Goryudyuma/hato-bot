@@ -2,7 +2,7 @@ import pg8000
 import slackbot_settings as conf
 
 
-class VocabularyDatabase:
+class     VocabularyDatabaseaaaaa:
     def __init__(self):
         try:
             pg8000.paramstyle = 'qmark'
